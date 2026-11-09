@@ -1,0 +1,88 @@
+:root {
+  color-scheme: dark;
+  --gold: #c89b68;
+  --maximalbreite: 1280px;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #000;
+  color: #f4eee5;
+  font: 1rem/1.55 Arial, sans-serif;
+}
+.rahmen { width: min(calc(100% - 32px), var(--maximalbreite)); margin-inline: auto; }
+.kopf { border-bottom: 1px solid var(--gold); }
+.kopf-inhalt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 68px;
+}
+.logo { flex: 0 0 194px; }
+img { display: block; width: 100%; height: auto; }
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px clamp(14px, 2vw, 30px);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  color: var(--gold);
+}
+nav li { white-space: nowrap; }
+nav a { color: inherit; text-underline-offset: 4px; }
+main { margin-block: 16px 24px; }
+.banner { position: relative; }
+h1, h2 { font-family: Georgia, serif; }
+h1 {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  margin: 0;
+  color: #fff0d4;
+  font-size: clamp(1.5rem, 5.7vw, 4.5rem);
+  line-height: 1;
+  text-shadow: 0 2px 8px #000, 0 0 18px #000;
+}
+h1 span {
+  margin-top: .36em;
+  color: #edbb73;
+  font-size: .4em;
+  letter-spacing: .36em;
+  text-transform: uppercase;
+}
+.willkommen {
+  display: grid;
+  grid-template-columns: 24.4% minmax(0, 1fr) 16.9%;
+  align-items: start;
+}
+.text { padding: 22px clamp(16px, 2.3vw, 36px) 28px; }
+h2 {
+  margin: 0 0 16px;
+  color: var(--gold);
+  font-size: clamp(1.55rem, 3vw, 2.45rem);
+  line-height: 1.1;
+}
+p { margin: 0; }
+.fernweh { margin-top: 22px; text-align: center; }
+footer {
+  border-top: 1px solid var(--gold);
+  padding: 18px 0;
+  text-align: center;
+  color: var(--gold);
+  font-size: .85rem;
+}
+@media (max-width: 900px) {
+  .kopf-inhalt { flex-direction: column; gap: 6px; padding: 4px 0 12px; }
+  .logo { flex: none; width: 175px; }
+}
+@media (max-width: 640px) {
+  .willkommen { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .text { grid-column: 1 / -1; grid-row: 1; padding-inline: 0; }
+  .willkommen > img { aspect-ratio: 2 / 3; object-fit: cover; object-position: center 26%; }
+  nav ul { font-size: .9rem; }
+}
